@@ -5,7 +5,6 @@ from bs4 import BeautifulSoup
 
 window = tk.Tk()
 window.title('News Extractor')
-window.iconbitmap(r'C:\Users\yeshw\OneDrive\Desktop\Tkinter-Projects\News Extractor\news.ico')
 window.resizable(0,0)
 
 def generate_news():
@@ -58,16 +57,22 @@ def generate_news():
             output.insert(tk.END, f"{i+1}) {headline}\n")
     else:
         messagebox.showerror("ERROR", "We had a problem fetching Business News")
-    
+
+inp_frame = tk.Frame(window)
+inp_frame.pack()    
+
+heading = tk.Label(inp_frame, text="News Scraper", font="Calibri 20 bold")
+heading.grid(row=0, padx=20, pady=15)
+
+output = tk.Text(inp_frame, wrap="word", width=50, height=15, font="Calibri 20")
+output.grid(row=1, column=0, sticky="nsew")
+
+scroll_bar = tk.Scrollbar(inp_frame, command=output.yview)
+scroll_bar.grid(row=1, column=1, sticky="ns")
+
+output.config(yscrollcommand=scroll_bar.set)
 
 btn = tk.Button(window, text="Today's News", command=generate_news, font="Calibri 15")
 btn.pack(padx=20, pady=15, ipadx=20, ipady=5)
-
-output = tk.Text(window, wrap="word", width=50, height=15, font="Calibri 20")
-output.pack(side="left", fill="both", expand=True)
-
-scroll_bar = tk.Scrollbar(window, command=output.yview)
-scroll_bar.pack(fill="y", side="right")
-output.config(yscrollcommand=scroll_bar.set)
 
 window.mainloop()
