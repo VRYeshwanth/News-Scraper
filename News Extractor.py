@@ -63,17 +63,21 @@ def generate_news():
 inp_frame = tk.Frame(window)
 inp_frame.pack()    
 
+# Heading Label
 heading = tk.Label(inp_frame, text="News Scraper", font="Calibri 20 bold")
 heading.grid(row=0, padx=20, pady=15)
 
+# Text Widget which displays the news
 output = tk.Text(inp_frame, wrap="word", width=50, height=15, font="Calibri 20")
 output.grid(row=1, column=0, sticky="nsew")
 
+#ScrollBar Widget
 scroll_bar = tk.Scrollbar(inp_frame, command=output.yview)
 scroll_bar.grid(row=1, column=1, sticky="ns")
 
 output.config(yscrollcommand=scroll_bar.set)
 
+#Button Widget
 btn = tk.Button(window, text="Today's News", command=generate_news, font="Calibri 15")
 btn.pack(padx=20, pady=15, ipadx=20, ipady=5)
 
