@@ -7,6 +7,7 @@ window = tk.Tk()
 window.title('News Extractor')
 window.resizable(0,0)
 
+# Function which scrapes the news headlines
 def generate_news():
     output.delete("1.0", tk.END)
     world_news_url = "https://www.indiatoday.in/world"
@@ -58,6 +59,7 @@ def generate_news():
     except Exception:
         messagebox.showerror("ERROR", "We had a problem fetching Business News")
 
+#Frame which holds the heading and the Text widget
 inp_frame = tk.Frame(window)
 inp_frame.pack()    
 
