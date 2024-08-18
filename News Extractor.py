@@ -73,6 +73,7 @@ heading.grid(row=0, padx=20, pady=15)
 output = tk.Text(inp_frame, wrap="word", width=50, height=15, font="Calibri 20")
 output.grid(row=1, column=0, sticky="nsew")
 
+#It helps to modify specific text in the text widget. All we have to do is to type "white" in the insert option for it to take effect
 output.tag_configure("white", foreground="#C3C7D8", font=("Comic Sans MS", 18, "bold"))
 output.configure(bg="#131B23", fg="#FED766")
 
