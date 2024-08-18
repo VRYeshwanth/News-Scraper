@@ -6,6 +6,7 @@ from bs4 import BeautifulSoup
 window = tk.Tk()
 window.title('News Extractor')
 window.resizable(0,0)
+window.configure(bg="#131B23")
 
 # Function which scrapes the news headlines
 def generate_news():
@@ -19,7 +20,7 @@ def generate_news():
         w_headlines = []
         for article in w_article:
             w_headlines.append(article.find("h2").text.strip())
-        output.insert(tk.END, "International News :-\n")
+        output.insert(tk.END, "International News :-\n", "white")
         for i, headline in enumerate(w_headlines):
             output.insert(tk.END, f"{i+1}) {headline}\n")
     except Exception:
@@ -36,7 +37,7 @@ def generate_news():
         i_headlines = []
         for article in i_article:
             i_headlines.append(article.find("h2").text.strip())
-        output.insert(tk.END, "National News :-\n")
+        output.insert(tk.END, "National News :-\n", "white")
         for i, headline in enumerate(i_headlines):
             output.insert(tk.END, f"{i+1}) {headline}\n")
     except Exception:
@@ -53,7 +54,7 @@ def generate_news():
         b_headlines = []
         for article in b_article:
             b_headlines.append(article.find("h2").text.strip())
-        output.insert(tk.END, "Business News :-\n")
+        output.insert(tk.END, "Business News :-\n", "white")
         for i, headline in enumerate(b_headlines):
             output.insert(tk.END, f"{i+1}) {headline}\n")
     except Exception:
@@ -61,15 +62,17 @@ def generate_news():
 
 #Frame which holds the heading and the Text widget
 inp_frame = tk.Frame(window)
-inp_frame.pack()    
+inp_frame.pack()
+inp_frame.configure(bg="#131B23")
 
-# Heading Label
 heading = tk.Label(inp_frame, text="News Scraper", font="Calibri 20 bold")
 heading.grid(row=0, padx=20, pady=15)
 
-# Text Widget which displays the news
 output = tk.Text(inp_frame, wrap="word", width=50, height=15, font="Calibri 20")
 output.grid(row=1, column=0, sticky="nsew")
+
+output.tag_configure("white", foreground="#C3C7D8", font=("Comic Sans MS", 18, "bold"))
+output.configure(bg="#131B23", fg="#FED766")
 
 #ScrollBar Widget
 scroll_bar = tk.Scrollbar(inp_frame, command=output.yview)
@@ -77,7 +80,6 @@ scroll_bar.grid(row=1, column=1, sticky="ns")
 
 output.config(yscrollcommand=scroll_bar.set)
 
-#Button Widget
 btn = tk.Button(window, text="Today's News", command=generate_news, font="Calibri 15")
 btn.pack(padx=20, pady=15, ipadx=20, ipady=5)
 
