@@ -5,6 +5,8 @@ from bs4 import BeautifulSoup
 
 window = tk.Tk()
 window.title('News Extractor')
+#Enter your icon path below
+window.iconbitmap()
 window.resizable(0,0)
 
 # Function which scrapes the news headlines
