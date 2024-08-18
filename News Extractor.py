@@ -68,11 +68,11 @@ inp_frame.pack()
 inp_frame.configure(bg="#131B23")
 
 #Heading Widget
-heading = tk.Label(inp_frame, text="News Scraper", font="Calibri 20 bold")
+heading = tk.Label(inp_frame, text="News Scraper", font=("Comic Sans MS", 20, "bold"), bg="#131B23", fg="#FED766")
 heading.grid(row=0, padx=20, pady=15)
 
 #Text Widget
-output = tk.Text(inp_frame, wrap="word", width=50, height=15, font="Calibri 20")
+output = tk.Text(inp_frame, wrap="word", width=50, height=15, font=("Comic Sans MS", 16))
 output.grid(row=1, column=0, sticky="nsew")
 
 #It helps to modify specific text in the text widget. All we have to do is to type "white" in the insert option for it to take effect
@@ -86,7 +86,7 @@ scroll_bar.grid(row=1, column=1, sticky="ns")
 output.config(yscrollcommand=scroll_bar.set)
 
 #Button Widget
-btn = tk.Button(window, text="Today's News", command=generate_news, font="Calibri 15")
+btn = tk.Button(window, text="Today's News", command=generate_news, font=("Comic Sans MS", 15), bg="#FED766", fg="#131B23")
 btn.pack(padx=20, pady=15, ipadx=20, ipady=5)
 
 window.mainloop()
