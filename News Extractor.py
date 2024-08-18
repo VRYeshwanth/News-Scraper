@@ -61,10 +61,10 @@ def generate_news():
 inp_frame = tk.Frame(window)
 inp_frame.pack()    
 
-heading = tk.Label(inp_frame, text="News Scraper", font="Calibri 20 bold")
+heading = tk.Label(inp_frame, text="News Scraper", font=("Comic Sans MS", 20, "bold"))
 heading.grid(row=0, padx=20, pady=15)
 
-output = tk.Text(inp_frame, wrap="word", width=50, height=15, font="Calibri 20")
+output = tk.Text(inp_frame, wrap="word", width=50, height=15, font=("Comic Sans MS", 16))
 output.grid(row=1, column=0, sticky="nsew")
 
 scroll_bar = tk.Scrollbar(inp_frame, command=output.yview)
@@ -72,7 +72,7 @@ scroll_bar.grid(row=1, column=1, sticky="ns")
 
 output.config(yscrollcommand=scroll_bar.set)
 
-btn = tk.Button(window, text="Today's News", command=generate_news, font="Calibri 15")
+btn = tk.Button(window, text="Today's News", command=generate_news, font=("Comic Sans MS", 16))
 btn.pack(padx=20, pady=15, ipadx=20, ipady=5)
 
 window.mainloop()
