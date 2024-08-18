@@ -74,7 +74,7 @@ scroll_bar.grid(row=1, column=1, sticky="ns")
 
 output.config(yscrollcommand=scroll_bar.set)
 
-btn = tk.Button(window, text="Today's News", command=generate_news, font=("Comic Sans MS", 16))
-btn.pack(padx=20, pady=15, ipadx=20, ipady=5)
+btn = tk.Button(window, text="Today's News", command=generate_news, font=("Comic Sans MS", 15))
+btn.pack(padx=20, pady=15, ipadx=15, ipady=5)
 
 window.mainloop()
